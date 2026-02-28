@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import rocketImage from "./assets/rocket.jpeg";
 import robotImage from "./assets/robot.jpeg";
 import datacenterImage from "./assets/datakeskus.jpg";
+import perpetualImage from "./assets/perpetual.png";
 
 const LAUNCH_TARGET = "2026-03-02T10:00:00Z";
 
@@ -44,19 +45,20 @@ export default function App() {
           </div>
         </nav>
 
-        <div className="hero-copy">
-          <p className="eyebrow">Classified Research Initiative · Zero-Decay Energy Loop</p>
-          <h1>The perpetual motion machine engineered for a post-scarcity era.</h1>
-          <p className="subhead">
-            Aito Infinity is a revolutionary company developing a contained kinetic lattice
-            that sustains motion without external fuel, unlocking propulsion for deep
-            space, resilient robotics, and carbon-free AI data center power.
-            Rigorous testing is underway with independent third-party validation teams.
-          </p>
-          <div className="cta-row">
-            <button className="primary">Secure Early Access</button>
-            <button className="secondary">Download Technical Dossier</button>
-          </div>
+        <div className="hero-split">
+          <div className="hero-copy">
+            <p className="eyebrow">Classified Research Initiative · Zero-Decay Energy Loop</p>
+            <h1>The perpetual motion machine engineered for a post-scarcity era.</h1>
+            <p className="subhead">
+              Aito Infinity is a revolutionary company developing a contained kinetic lattice
+              that sustains motion without external fuel, unlocking propulsion for deep
+              space, resilient robotics, and carbon-free AI data center power.
+              Rigorous testing is underway with independent third-party validation teams.
+            </p>
+            <div className="cta-row">
+              <button className="primary">Secure Early Access</button>
+              <button className="secondary">Download Technical Dossier</button>
+            </div>
             <div className="hero-stats">
               <div>
                 <span className="stat-number">99.997%</span>
@@ -68,6 +70,10 @@ export default function App() {
               </div>
             </div>
           </div>
+          <div className="hero-media">
+            <img src={perpetualImage} alt="Aito Infinity perpetual motion core" />
+          </div>
+        </div>
       </header>
 
       <main>

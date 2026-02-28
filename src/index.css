@@ -136,6 +136,32 @@ button {
   gap: 56px;
 }
 
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-media {
+  justify-self: center;
+  max-width: 520px;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(126, 249, 255, 0.2);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  background: rgba(6, 10, 20, 0.5);
+}
+
+.hero-media img {
+  display: block;
+  width: 110%;
+  height: 320px;
+  object-fit: cover;
+  transform: translateX(-5%);
+}
+
 .hero-copy {
   display: flex;
   flex-direction: column;
@@ -468,6 +494,14 @@ h1 {
 
   .hero-panel {
     padding: 24px;
+  }
+
+  .hero-split {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-media img {
+    height: 240px;
   }
 
   .countdown-grid {
