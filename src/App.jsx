@@ -57,7 +57,9 @@ export default function App() {
             <a href="#applications">Applications</a>
             <a href="#breakthrough">Breakthrough</a>
             <a href="#timeline">Timeline</a>
-            <button className="ghost">Request Brief</button>
+            <a className="ghost" href={reportPdf} download>
+              Download Report
+            </a>
           </div>
         </nav>
 
