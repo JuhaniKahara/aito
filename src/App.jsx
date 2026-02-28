@@ -3,6 +3,7 @@ import rocketImage from "./assets/rocket.jpeg";
 import robotImage from "./assets/robot.jpeg";
 import datacenterImage from "./assets/datakeskus.jpg";
 import perpetualImage from "./assets/perpetual.png";
+import reportPdf from "./assets/report.pdf";
 
 const LAUNCH_TARGET = "2026-03-02T10:00:00Z";
 
@@ -57,7 +58,7 @@ export default function App() {
             </p>
           <div className="cta-row">
             <button className="primary">Secure Early Access</button>
-            <a className="secondary" href="/report.pdf" download>
+            <a className="secondary" href={reportPdf} download>
               Download Report
             </a>
           </div>
