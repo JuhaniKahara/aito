@@ -71,24 +71,54 @@ export default function App() {
               space, resilient robotics, and carbon-free AI data center power.
               Rigorous testing is underway with independent third-party validation teams.
             </p>
-            <div className="cta-row">
-              <a className="primary" href={reportPdf} download>
-                Download Report
-              </a>
-            </div>
-            <div className="hero-stats">
-              <div>
-                <span className="stat-number">99.997%</span>
-                <span className="stat-label">Loop Stability</span>
-              </div>
-              <div>
-                <span className="stat-number">0.0%</span>
-                <span className="stat-label">Thermal Drift</span>
+            <div className="hero-actions">
+              <div className="hero-actions-left">
+                <div className="hero-stats">
+                  <div>
+                    <span className="stat-number">99.997%</span>
+                    <span className="stat-label">Loop Stability</span>
+                  </div>
+                  <div>
+                    <span className="stat-number">0.0%</span>
+                    <span className="stat-label">Thermal Drift</span>
+                  </div>
+                </div>
+                <div className="cta-row">
+                  <a className="primary" href={reportPdf} download>
+                    Download Report
+                  </a>
+                </div>
               </div>
             </div>
           </div>
           <div className="hero-media">
-            <img src={perpetualImage} alt="Aito Infinity perpetual motion core" />
+            <div className="hero-media-frame">
+              <img src={perpetualImage} alt="Aito Infinity perpetual motion core" />
+            </div>
+            <div className="hero-panel countdown-panel">
+              <div className="panel-glow" />
+              <div className="countdown">
+                <p className="countdown-label">Next report will be released in</p>
+                <div className="countdown-grid">
+                  <div>
+                    <span>{formatUnits(countdown.days)}</span>
+                    <small>Days</small>
+                  </div>
+                  <div>
+                    <span>{formatUnits(countdown.hours)}</span>
+                    <small>Hours</small>
+                  </div>
+                  <div>
+                    <span>{formatUnits(countdown.minutes)}</span>
+                    <small>Minutes</small>
+                  </div>
+                  <div>
+                    <span>{formatUnits(countdown.secs)}</span>
+                    <small>Seconds</small>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -133,33 +163,6 @@ export default function App() {
                 thermal balance and grid independence.
               </p>
             </article>
-          </div>
-        </section>
-
-        <section className="section countdown-section">
-          <div className="hero-panel countdown-panel">
-            <div className="panel-glow" />
-            <div className="countdown">
-              <p className="countdown-label">Next report will be released in</p>
-              <div className="countdown-grid">
-                <div>
-                  <span>{formatUnits(countdown.days)}</span>
-                  <small>Days</small>
-                </div>
-                <div>
-                  <span>{formatUnits(countdown.hours)}</span>
-                  <small>Hours</small>
-                </div>
-                <div>
-                  <span>{formatUnits(countdown.minutes)}</span>
-                  <small>Minutes</small>
-                </div>
-                <div>
-                  <span>{formatUnits(countdown.secs)}</span>
-                  <small>Seconds</small>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 

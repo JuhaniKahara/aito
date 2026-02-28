@@ -140,13 +140,23 @@ button {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 40px;
-  align-items: center;
+  align-items: start;
 }
 
 .hero-media {
   justify-self: center;
+  align-self: start;
   max-width: 520px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-end;
+}
+
+.hero-media-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
   border-radius: 24px;
   overflow: hidden;
   border: 1px solid rgba(126, 249, 255, 0.2);
@@ -154,12 +164,12 @@ button {
   background: rgba(6, 10, 20, 0.5);
 }
 
-.hero-media img {
+.hero-media-frame img {
   display: block;
-  width: 110%;
-  height: 320px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transform: translateX(-5%);
+  transform: scale(1.06);
 }
 
 .hero-copy {
@@ -167,6 +177,21 @@ button {
   flex-direction: column;
   gap: 24px;
   width: 100%;
+  align-self: stretch;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.hero-actions-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 220px;
 }
 
 .eyebrow {
@@ -252,14 +277,11 @@ h1 {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 
-.countdown-section {
-  align-items: center;
-  margin-top: 12px;
-}
-
 .countdown-panel {
-  max-width: 720px;
+  max-width: 520px;
   width: 100%;
+  margin-top: 0;
+  align-self: flex-end;
 }
 
 .panel-glow {
@@ -502,8 +524,23 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .hero-media img {
-    height: 240px;
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .countdown-panel {
+    max-width: 100%;
+  }
+
+  .hero-media-frame img {
+    height: 100%;
+    min-height: 0;
+    transform: none;
   }
 
   .countdown-grid {
