@@ -1,16 +1,32 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import rocketImage from "./assets/rocket.jpeg";
 import robotImage from "./assets/robot.jpeg";
 import datacenterImage from "./assets/datakeskus.jpg";
 import perpetualImage from "./assets/perpetual.png";
 import reportPdf from "./assets/report.pdf";
 
-const LAUNCH_TARGET = "2026-03-02T10:00:00Z";
+const TIME_ZONE = "Europe/Helsinki";
+const TARGET_WEEKDAY = 1; // Monday
+const TARGET_HOUR = 15;
 
 const formatUnits = (value) => String(value).padStart(2, "0");
 
-const getCountdown = (target) => {
-  const total = Math.max(0, target.getTime() - Date.now());
+const getHelsinkiNow = () =>
+  new Date(new Date().toLocaleString("en-US", { timeZone: TIME_ZONE }));
+
+const getNextMondayTarget = (now) => {
+  const target = new Date(now);
+  target.setHours(TARGET_HOUR, 0, 0, 0);
+  const addDays = (TARGET_WEEKDAY - target.getDay() + 7) % 7;
+  target.setDate(target.getDate() + addDays);
+  if (addDays === 0 && now >= target) target.setDate(target.getDate() + 7);
+  return target;
+};
+
+const getCountdown = () => {
+  const now = getHelsinkiNow();
+  const target = getNextMondayTarget(now);
+  const total = Math.max(0, target - now);
   const seconds = Math.floor(total / 1000);
   const days = Math.floor(seconds / 86400);
   const hours = Math.floor((seconds % 86400) / 3600);
@@ -20,15 +36,14 @@ const getCountdown = (target) => {
 };
 
 export default function App() {
-  const targetDate = useMemo(() => new Date(LAUNCH_TARGET), []);
-  const [countdown, setCountdown] = useState(() => getCountdown(targetDate));
+  const [countdown, setCountdown] = useState(() => getCountdown());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCountdown(getCountdown(targetDate));
+      setCountdown(getCountdown());
     }, 1000);
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, []);
 
   return (
     <div className="app">
@@ -56,12 +71,11 @@ export default function App() {
               space, resilient robotics, and carbon-free AI data center power.
               Rigorous testing is underway with independent third-party validation teams.
             </p>
-          <div className="cta-row">
-            <button className="primary">Secure Early Access</button>
-            <a className="secondary" href={reportPdf} download>
-              Download Report
-            </a>
-          </div>
+            <div className="cta-row">
+              <a className="primary" href={reportPdf} download>
+                Download Report
+              </a>
+            </div>
             <div className="hero-stats">
               <div>
                 <span className="stat-number">99.997%</span>
@@ -91,22 +105,22 @@ export default function App() {
           <div className="grid three">
             <article className="card image-card">
               <div className="image-wrap">
-                <img src={rocketImage} alt="Deep space propulsion craft" loading="lazy" />
-              </div>
-              <h3>Deep Space Propulsion</h3>
-              <p>
-                Continuous thrust windows, autonomous asteroid positioning, and orbital
-                reshaping systems for long-range exploration.
-              </p>
-            </article>
-            <article className="card image-card">
-              <div className="image-wrap">
                 <img src={robotImage} alt="Autonomous robotics platform" loading="lazy" />
               </div>
               <h3>Robotic Autonomy</h3>
               <p>
                 Persistent industrial robotics that operate without recharge cycles,
                 enabling remote construction in extreme environments.
+              </p>
+            </article>
+            <article className="card image-card">
+              <div className="image-wrap">
+                <img src={rocketImage} alt="Deep space propulsion craft" loading="lazy" />
+              </div>
+              <h3>Deep Space Propulsion</h3>
+              <p>
+                Continuous thrust windows, autonomous asteroid positioning, and orbital
+                reshaping systems for long-range exploration.
               </p>
             </article>
             <article className="card image-card">
