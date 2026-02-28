@@ -55,10 +55,12 @@ export default function App() {
               space, resilient robotics, and carbon-free AI data center power.
               Rigorous testing is underway with independent third-party validation teams.
             </p>
-            <div className="cta-row">
-              <button className="primary">Secure Early Access</button>
-              <button className="secondary">Download Technical Dossier</button>
-            </div>
+          <div className="cta-row">
+            <button className="primary">Secure Early Access</button>
+            <a className="secondary" href="/report.pdf" download>
+              Download Report
+            </a>
+          </div>
             <div className="hero-stats">
               <div>
                 <span className="stat-number">99.997%</span>
