@@ -140,7 +140,7 @@ export default function App() {
           <div className="hero-panel countdown-panel">
             <div className="panel-glow" />
             <div className="countdown">
-              <p className="countdown-label">Next system reveal</p>
+              <p className="countdown-label">Next report will be released in</p>
               <div className="countdown-grid">
                 <div>
                   <span>{formatUnits(countdown.days)}</span>
