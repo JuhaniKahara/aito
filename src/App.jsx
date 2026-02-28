@@ -1,0 +1,284 @@
+import { useEffect, useMemo, useState } from "react";
+import rocketImage from "./assets/rocket.jpeg";
+import robotImage from "./assets/robot.jpeg";
+import datacenterImage from "./assets/datakeskus.jpg";
+
+const LAUNCH_TARGET = "2026-03-02T10:00:00Z";
+
+const formatUnits = (value) => String(value).padStart(2, "0");
+
+const getCountdown = (target) => {
+  const total = Math.max(0, target.getTime() - Date.now());
+  const seconds = Math.floor(total / 1000);
+  const days = Math.floor(seconds / 86400);
+  const hours = Math.floor((seconds % 86400) / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = seconds % 60;
+  return { total, days, hours, minutes, secs };
+};
+
+export default function App() {
+  const targetDate = useMemo(() => new Date(LAUNCH_TARGET), []);
+  const [countdown, setCountdown] = useState(() => getCountdown(targetDate));
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown(getCountdown(targetDate));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [targetDate]);
+
+  return (
+    <div className="app">
+      <header className="hero">
+        <nav className="nav">
+          <div className="logo">
+            <span className="logo-mark">AX</span>
+            <span className="logo-text">Aito Infinity</span>
+          </div>
+          <div className="nav-links">
+            <a href="#breakthrough">Breakthrough</a>
+            <a href="#applications">Applications</a>
+            <a href="#timeline">Timeline</a>
+            <button className="ghost">Request Brief</button>
+          </div>
+        </nav>
+
+        <div className="hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow">Classified Research Initiative · Zero-Decay Energy Loop</p>
+            <h1>
+              The perpetual motion machine engineered for a post-scarcity era.
+            </h1>
+            <p className="subhead">
+              Aito Infinity is a fictional lab developing a contained kinetic lattice
+              that sustains motion without external fuel, unlocking propulsion for deep
+              space, resilient robotics, and carbon-free AI data center power.
+            </p>
+            <div className="cta-row">
+              <button className="primary">Secure Early Access</button>
+              <button className="secondary">Download Technical Dossier</button>
+            </div>
+            <div className="hero-stats">
+              <div>
+                <span className="stat-number">99.997%</span>
+                <span className="stat-label">Loop Stability</span>
+              </div>
+              <div>
+                <span className="stat-number">0.0%</span>
+                <span className="stat-label">Thermal Drift</span>
+              </div>
+              <div>
+                <span className="stat-number">14</span>
+                <span className="stat-label">Patents Pending</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-panel">
+            <div className="panel-glow" />
+            <div className="countdown">
+              <p className="countdown-label">Next system reveal</p>
+              <div className="countdown-grid">
+                <div>
+                  <span>{formatUnits(countdown.days)}</span>
+                  <small>Days</small>
+                </div>
+                <div>
+                  <span>{formatUnits(countdown.hours)}</span>
+                  <small>Hours</small>
+                </div>
+                <div>
+                  <span>{formatUnits(countdown.minutes)}</span>
+                  <small>Minutes</small>
+                </div>
+                <div>
+                  <span>{formatUnits(countdown.secs)}</span>
+                  <small>Seconds</small>
+                </div>
+              </div>
+              <p className="countdown-note">
+                Target window: March 2, 2026 · 12:00 Finland (UTC+2)
+              </p>
+            </div>
+
+            <div className="signal">
+              <div className="signal-line" />
+              <div>
+                <p>Containment field</p>
+                <strong>Nominal</strong>
+              </div>
+              <div>
+                <p>Quantum drag</p>
+                <strong>Suppressed</strong>
+              </div>
+              <div>
+                <p>Energy output</p>
+                <strong>Stable</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section id="breakthrough" className="section">
+          <div className="section-header">
+            <h2>Breakthrough Overview</h2>
+            <p>
+              The Axis Infinity engine is a sealed toroidal lattice of gravito-magnetic
+              resonators. Once primed, the lattice sustains rotational energy with no
+              decay and exports clean electrical output through inductive taps.
+            </p>
+          </div>
+          <div className="grid two">
+            <div className="card">
+              <h3>Core Architecture</h3>
+              <p>
+                Adaptive metamaterials align with a harmonic control stack, keeping
+                torque balanced across 12 counter-rotating nodes and preventing drag
+                collapse.
+              </p>
+              <div className="tag-row">
+                <span>Metamaterials</span>
+                <span>Field Control</span>
+                <span>Failsafe</span>
+              </div>
+            </div>
+            <div className="card">
+              <h3>Power Export</h3>
+              <p>
+                Inductive couplers convert rotational momentum into electrical flow,
+                delivering steady megawatt-class output with zero carbon footprint.
+              </p>
+              <div className="tag-row">
+                <span>99.99% Efficiency</span>
+                <span>Closed Loop</span>
+                <span>Silent</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="applications" className="section">
+          <div className="section-header">
+            <h2>Applications</h2>
+            <p>
+              Perpetual motion power unlocks a new category of mission profiles where
+              energy is no longer the limiting factor.
+            </p>
+          </div>
+          <div className="grid three">
+            <article className="card image-card">
+              <div className="image-wrap">
+                <img src={rocketImage} alt="Deep space propulsion craft" loading="lazy" />
+              </div>
+              <h3>Deep Space Propulsion</h3>
+              <p>
+                Continuous thrust windows, autonomous asteroid positioning, and orbital
+                reshaping systems for long-range exploration.
+              </p>
+            </article>
+            <article className="card image-card">
+              <div className="image-wrap">
+                <img src={robotImage} alt="Autonomous robotics platform" loading="lazy" />
+              </div>
+              <h3>Robotic Autonomy</h3>
+              <p>
+                Persistent industrial robotics that operate without recharge cycles,
+                enabling remote construction in extreme environments.
+              </p>
+            </article>
+            <article className="card image-card">
+              <div className="image-wrap">
+                <img src={datacenterImage} alt="AI data center power corridor" loading="lazy" />
+              </div>
+              <h3>AI Data Centers</h3>
+              <p>
+                Zero-carbon power for high-density AI compute clusters with active
+                thermal balance and grid independence.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="grid two">
+            <div className="card highlight">
+              <h3>Operational Metrics</h3>
+              <div className="metric-list">
+                <div>
+                  <span>Output</span>
+                  <strong>1.8 MW continuous</strong>
+                </div>
+                <div>
+                  <span>Uptime</span>
+                  <strong>99.999% projected</strong>
+                </div>
+                <div>
+                  <span>Footprint</span>
+                  <strong>12m x 8m module</strong>
+                </div>
+                <div>
+                  <span>Cooling</span>
+                  <strong>Closed-loop cryogenic</strong>
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <h3>Ethical Safeguards</h3>
+              <p>
+                Aito Infinity operates under a transparent governance model with global
+                energy stewardship audits, export controls, and open scientific review
+                of safety protocols.
+              </p>
+              <p>
+                This page is a fictional concept site for a perpetual motion machine and
+                does not represent a real company or verified technology.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="timeline" className="section">
+          <div className="section-header">
+            <h2>Program Timeline</h2>
+            <p>
+              A phased release plan to validate stability, scale manufacturing, and
+              integrate with early strategic partners.
+            </p>
+          </div>
+          <div className="timeline">
+            <div className="timeline-item">
+              <span>Phase 01</span>
+              <h4>Containment Validation</h4>
+              <p>High-frequency resonance trials, safety verification, and field tuning.</p>
+            </div>
+            <div className="timeline-item">
+              <span>Phase 02</span>
+              <h4>Subsystem Coupling</h4>
+              <p>Integrate power export coils with AI-managed stabilization loops.</p>
+            </div>
+            <div className="timeline-item">
+              <span>Phase 03</span>
+              <h4>Partner Deployments</h4>
+              <p>Pilot systems for space agencies, robotics labs, and AI data centers.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="footer">
+        <div>
+          <strong>Aito Infinity</strong>
+          <p>Fictional energy systems design studio.</p>
+        </div>
+        <div className="footer-links">
+          <a href="#">Security</a>
+          <a href="#">Press</a>
+          <a href="#">Careers</a>
+        </div>
+      </footer>
+    </div>
+  );
+}
