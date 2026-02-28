@@ -33,32 +33,30 @@ export default function App() {
       <header className="hero">
         <nav className="nav">
           <div className="logo">
-            <span className="logo-mark">AX</span>
+            <span className="logo-mark">AI</span>
             <span className="logo-text">Aito Infinity</span>
           </div>
           <div className="nav-links">
-            <a href="#breakthrough">Breakthrough</a>
             <a href="#applications">Applications</a>
+            <a href="#breakthrough">Breakthrough</a>
             <a href="#timeline">Timeline</a>
             <button className="ghost">Request Brief</button>
           </div>
         </nav>
 
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">Classified Research Initiative · Zero-Decay Energy Loop</p>
-            <h1>
-              The perpetual motion machine engineered for a post-scarcity era.
-            </h1>
-            <p className="subhead">
-              Aito Infinity is a fictional lab developing a contained kinetic lattice
-              that sustains motion without external fuel, unlocking propulsion for deep
-              space, resilient robotics, and carbon-free AI data center power.
-            </p>
-            <div className="cta-row">
-              <button className="primary">Secure Early Access</button>
-              <button className="secondary">Download Technical Dossier</button>
-            </div>
+        <div className="hero-copy">
+          <p className="eyebrow">Classified Research Initiative · Zero-Decay Energy Loop</p>
+          <h1>The perpetual motion machine engineered for a post-scarcity era.</h1>
+          <p className="subhead">
+            Aito Infinity is a revolutionary company developing a contained kinetic lattice
+            that sustains motion without external fuel, unlocking propulsion for deep
+            space, resilient robotics, and carbon-free AI data center power.
+            Rigorous testing is underway with independent third-party validation teams.
+          </p>
+          <div className="cta-row">
+            <button className="primary">Secure Early Access</button>
+            <button className="secondary">Download Technical Dossier</button>
+          </div>
             <div className="hero-stats">
               <div>
                 <span className="stat-number">99.997%</span>
@@ -68,98 +66,11 @@ export default function App() {
                 <span className="stat-number">0.0%</span>
                 <span className="stat-label">Thermal Drift</span>
               </div>
-              <div>
-                <span className="stat-number">14</span>
-                <span className="stat-label">Patents Pending</span>
-              </div>
             </div>
           </div>
-
-          <div className="hero-panel">
-            <div className="panel-glow" />
-            <div className="countdown">
-              <p className="countdown-label">Next system reveal</p>
-              <div className="countdown-grid">
-                <div>
-                  <span>{formatUnits(countdown.days)}</span>
-                  <small>Days</small>
-                </div>
-                <div>
-                  <span>{formatUnits(countdown.hours)}</span>
-                  <small>Hours</small>
-                </div>
-                <div>
-                  <span>{formatUnits(countdown.minutes)}</span>
-                  <small>Minutes</small>
-                </div>
-                <div>
-                  <span>{formatUnits(countdown.secs)}</span>
-                  <small>Seconds</small>
-                </div>
-              </div>
-              <p className="countdown-note">
-                Target window: March 2, 2026 · 12:00 Finland (UTC+2)
-              </p>
-            </div>
-
-            <div className="signal">
-              <div className="signal-line" />
-              <div>
-                <p>Containment field</p>
-                <strong>Nominal</strong>
-              </div>
-              <div>
-                <p>Quantum drag</p>
-                <strong>Suppressed</strong>
-              </div>
-              <div>
-                <p>Energy output</p>
-                <strong>Stable</strong>
-              </div>
-            </div>
-          </div>
-        </div>
       </header>
 
       <main>
-        <section id="breakthrough" className="section">
-          <div className="section-header">
-            <h2>Breakthrough Overview</h2>
-            <p>
-              The Axis Infinity engine is a sealed toroidal lattice of gravito-magnetic
-              resonators. Once primed, the lattice sustains rotational energy with no
-              decay and exports clean electrical output through inductive taps.
-            </p>
-          </div>
-          <div className="grid two">
-            <div className="card">
-              <h3>Core Architecture</h3>
-              <p>
-                Adaptive metamaterials align with a harmonic control stack, keeping
-                torque balanced across 12 counter-rotating nodes and preventing drag
-                collapse.
-              </p>
-              <div className="tag-row">
-                <span>Metamaterials</span>
-                <span>Field Control</span>
-                <span>Failsafe</span>
-              </div>
-            </div>
-            <div className="card">
-              <h3>Power Export</h3>
-              <p>
-                Inductive couplers convert rotational momentum into electrical flow,
-                delivering steady megawatt-class output with zero carbon footprint.
-              </p>
-              <div className="tag-row">
-                <span>99.99% Efficiency</span>
-                <span>Closed Loop</span>
-                <span>Silent</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section id="applications" className="section">
           <div className="section-header">
             <h2>Applications</h2>
@@ -202,6 +113,63 @@ export default function App() {
           </div>
         </section>
 
+        <section className="section countdown-section">
+          <div className="hero-panel countdown-panel">
+            <div className="panel-glow" />
+            <div className="countdown">
+              <p className="countdown-label">Next system reveal</p>
+              <div className="countdown-grid">
+                <div>
+                  <span>{formatUnits(countdown.days)}</span>
+                  <small>Days</small>
+                </div>
+                <div>
+                  <span>{formatUnits(countdown.hours)}</span>
+                  <small>Hours</small>
+                </div>
+                <div>
+                  <span>{formatUnits(countdown.minutes)}</span>
+                  <small>Minutes</small>
+                </div>
+                <div>
+                  <span>{formatUnits(countdown.secs)}</span>
+                  <small>Seconds</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="breakthrough" className="section">
+          <div className="grid two">
+            <div className="card">
+              <h3>Core Architecture</h3>
+              <p>
+                Adaptive metamaterials align with a harmonic control stack, keeping
+                torque balanced across 12 counter-rotating nodes and preventing drag
+                collapse.
+              </p>
+              <div className="tag-row">
+                <span>Metamaterials</span>
+                <span>Field Control</span>
+                <span>Failsafe</span>
+              </div>
+            </div>
+            <div className="card">
+              <h3>Power Export</h3>
+              <p>
+                Inductive couplers convert rotational momentum into electrical flow,
+                delivering steady megawatt-class output with zero carbon footprint.
+              </p>
+              <div className="tag-row">
+                <span>99.99% Efficiency</span>
+                <span>Closed Loop</span>
+                <span>Silent</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="section">
           <div className="grid two">
             <div className="card highlight">
@@ -231,10 +199,6 @@ export default function App() {
                 Aito Infinity operates under a transparent governance model with global
                 energy stewardship audits, export controls, and open scientific review
                 of safety protocols.
-              </p>
-              <p>
-                This page is a fictional concept site for a perpetual motion machine and
-                does not represent a real company or verified technology.
               </p>
             </div>
           </div>
@@ -271,7 +235,7 @@ export default function App() {
       <footer className="footer">
         <div>
           <strong>Aito Infinity</strong>
-          <p>Fictional energy systems design studio.</p>
+          <p>Revolutionary energy systems company.</p>
         </div>
         <div className="footer-links">
           <a href="#">Security</a>

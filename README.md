@@ -1,4 +1,4 @@
-# Aito Infinity - Fictional Perpetual Motion Lab
+# Aito Infinity - Perpetual Motion Company
 
 Single-page React site with a futuristic, high-tech aesthetic. Built with Vite + React and deployable to GitHub Pages.
 
